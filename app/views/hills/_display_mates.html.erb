@@ -1,0 +1,14 @@
+<div id='display_mates'>
+  <h2>Mates</h2>
+	<div class='full_mate'>
+  		<% @full_mates.each do |user, hills| %>
+  			<%= render :partial => 'display_mate', :locals => { :user => user, :hills => hills } %>
+  		<%end%>
+	</div>
+	<div class='partial_mate'>
+  		<% @part_mates.each do |user, hills| %>
+  			<%= render :partial => 'display_mate', :locals => { :user => user, :hills => hills } %>
+  		<%end%>
+  	</div>
+	<script>$('.mates').popover();</script>
+</div>

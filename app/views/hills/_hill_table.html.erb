@@ -1,0 +1,32 @@
+<div id='hill_table_div'>
+<table id='hill_table'  width="100%">
+<thead>
+      <tr>
+        <th class='col_number'>Number</th>
+        <th class='col_name'>Name</th>
+        <% if signed_in? && !current_user.admin %>
+          <th>Date</th>
+          <th>Notes</th>
+        <%end%>
+        <th>Height</th>
+        <th>Other info</th>
+        <th>Origin</th>
+        <th>Chapter</th>
+        <th>Grid ref</th>
+        <th></th>
+      </tr>
+    </thead>
+
+      <tbody>
+      <% if signed_in? && !current_user.admin %>
+        <%= render @ascents %>
+      <% else %>
+        <%= render @hills %>
+      <% end %>
+    </tbody>
+  </table>
+
+
+
+</div>
+<script> setup_table(); </script>

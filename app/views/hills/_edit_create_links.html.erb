@@ -1,0 +1,25 @@
+<% if (@selected_hills.length == 1) %>
+  <h2>Update Links</h2>  
+    <%= form_tag update_links_hills_path, remote: true, :html => { :method => :put }  do %>
+    <%= hidden_field_tag(:hill_ids, params[:hill_ids]) %>
+
+    <% @linked_hills.each do |hill| %>
+      <div class="form-group">    
+        <%= check_box_tag 'linked_hill_ids[]', hill.id, true %>
+        <%= "#{hill.name}" %> 
+      </div>    
+    <% end %>
+    <%= submit_tag "Update", {class: "btn btn-large btn-primary"} %>
+    <% end %>
+<% else %>
+  <h2>Create Links</h2>
+  <% @selected_hills.each do |hill| %>
+    <%= hill.name %> <br>
+  <% end %>
+  <button id='create_links_button' class="btn ">Create links</button>
+  <script>
+    $("#create_links_button").click(function() {
+      create_links();
+    })
+  </script>
+<% end %>

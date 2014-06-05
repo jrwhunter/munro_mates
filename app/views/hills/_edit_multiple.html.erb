@@ -1,0 +1,29 @@
+<div id="edit_multiple">
+<h2>Update Selected</h2>
+  <% if (params[:hill_ids] != nil && params[:hill_ids].length() > 0) %>
+    <%= form_tag update_multiple_hills_path, :html => { :method => :put }  do %>
+    <% logger.warn('edit_multiple') %>
+      <% @climbed = @ascent != nil ? @ascent.climbed : false %>
+      <% @date = @ascent != nil ? @ascent.date : nil %>
+      <% @notes = @ascent != nil ? @ascent.notes : nil %>
+
+     	<%= hidden_field_tag(:hill_ids, params[:hill_ids]) %>
+
+    	<div class="form-group">    
+    		<%= label_tag "Climbed" %> 
+        <%= check_box_tag :climbed, nil, @climbed %>
+      </div>
+      <div class="form-group">
+        <%= label_tag "Date" %>
+        <%= date_field_tag :date, @date, placeholder: "Date", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag "Notes" %>
+        <%= text_field_tag :notes, @notes, placeholder: "Notes", class: "form-control" %>
+      </div>
+      <%= submit_tag "Update", {class: "btn btn-large btn-primary"} %>
+    <% end %>
+  <% end %>
+</div>
+
+

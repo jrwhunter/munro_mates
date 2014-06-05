@@ -1,0 +1,15 @@
+<tr>
+    <%= hidden_field_tag(:hill_id, hill.id) %>
+    <td class='col_number'><%= hill.number %></td>
+    <td class='col_name'><%= hill.name %></td>
+    <td><%= hill.height %></td>
+    <td><%= hill.other_info %></td>
+    <td><%= hill.origin %></td>
+    <td><%= hill.chapter %></td>
+    <td><a href="<%=hill.map%>"><%= hill.grid_ref %></a></td>
+    <td><%= link_to 'Show', hill %>
+    	<% if signed_in? && current_user.admin %>
+    	| <%= link_to 'Edit', edit_hill_path(hill) %>
+    	<% end %>
+    </td>
+</tr>

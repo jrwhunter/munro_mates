@@ -1,0 +1,49 @@
+
+<div class='.container-fluid'>
+
+
+  <div class="row">
+    <div class="col-md-10">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+              <%= render 'display_caption' %>
+          </div>
+          <div class='navbar-right'>
+            <% if (signed_in? && !current_user.admin) %>
+              <button class="btn btn-default navbar-btn select_button" type="button" value='To do'>To do</button>
+              <button class="btn btn-default navbar-btn select_button" type="button" value='Climbed'>Climbed</button>
+              <button class="btn btn-default navbar-btn select_button" type="button" value='All'>All</button>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <% end %>
+            <% cum = 0 %>
+            <% if (!signed_in? || current_user.munros) %>
+              <button class="btn btn-default navbar-btn category_button" type="button" value='Munros'>Munros</button>
+              <% cum = cum+1 %>
+            <% end %>
+            <% if (!signed_in? || current_user.munro_tops) %>
+              <button class="btn btn-default navbar-btn category_button" type="button" value='Munro Tops'>Munro Tops</button>
+              <% cum = cum+1 %>
+            <% end %>
+            <% if (!signed_in? || current_user.corbetts) %>
+              <button class="btn btn-default navbar-btn category_button" type="button" value='Corbetts'>Corbetts</button>
+              <% cum = cum+1 %>
+            <% end %>
+            <% if (!signed_in? || current_user.grahams) %>
+              <button class="btn btn-default navbar-btn category_button" type="button" value='Grahams'>Grahams</button>
+              <% cum = cum+1 %>
+            <% end %>
+            <% if (cum > 1) %>
+              <button class="btn btn-default navbar-btn category_button" type="button" value='All'>All</button>
+            <% end %>
+          </div>
+        </div>
+      </nav>
+      <%= render 'hill_table' %>
+    </div>
+
+    <div id='update_sidebar' class="col-md-2">
+      <%= render 'update_sidebar' %>
+    </div>
+  </div>
+</div>

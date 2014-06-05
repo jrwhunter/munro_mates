@@ -1,0 +1,9 @@
+<% if (signed_in? && @selected_hills.length > 0) %>
+	<% if !current_user.admin %>
+		<%= render 'display_mates' %>
+		<%= render 'display_hill_names' %>
+		<%= render 'edit_multiple' %>
+	<% else %>
+		<%= render 'edit_create_links' %>
+	<% end %>
+<% end %>

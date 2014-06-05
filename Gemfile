@@ -12,6 +12,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+# Add Twitter Bootstrap
+gem 'bootstrap-sass', '~> 3.1.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -20,11 +22,20 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 2.1'
+# Also add jquery-ui
+gem 'jquery-ui-rails'
+# Also dataTables
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+
+
+# For paginating users
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
 
 group :development do
 	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

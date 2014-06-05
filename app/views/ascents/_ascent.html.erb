@@ -1,0 +1,16 @@
+<tr>
+    <%= hidden_field_tag(:hill_id, ascent.hill.id) %>
+
+    <td <%= ascent.climbed ? 'class=climbed' : 'class=todo' %> >
+        <%= ascent.hill.number %>         
+    </td>
+    <td><%= ascent.hill.name %></td>
+    <td><%= ascent.date ? ascent.date.strftime('%d/%m/%y') : nil %></td>
+    <td><%= ascent.notes %></td>
+    <td><%= ascent.hill.height %></td>
+    <td><%= ascent.hill.other_info %></td>
+    <td><%= ascent.hill.origin %></td>
+    <td><%= ascent.hill.chapter %></td>
+    <td><%= ascent.hill.map ? link_to(ascent.hill.grid_ref, ascent.hill.map) : ascent.hill.grid_ref %></td>
+    <td><%= link_to 'Show', ascent %></td>
+</tr>

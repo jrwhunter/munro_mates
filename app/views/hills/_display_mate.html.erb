@@ -1,0 +1,19 @@
+<p class='mates'
+	data-html="true" 
+	data-trigger="hover" 
+	rel="popover" 
+	data-placement="bottom" 
+	data-original-title= <%= user.name.sub(' ', '&nbsp;') %> 
+	data-content= 
+		<% hill_list = "" %>
+		<% hills.each do |hill| %>
+			<% if @selected_hills.index(hill) != nil %>
+				<% hill_list = hill_list + "&nbsp;&nbsp;&nbsp;<strong>#{hill.name.sub(' ', '&nbsp;')}</strong><br>" %>
+			<% else %>
+				<% hill_list = hill_list +  "&nbsp;&nbsp;&nbsp;#{hill.name.sub(' ', '&nbsp;')}<br>" %>
+			<% end %>
+		<% end %>
+		<%= hill_list %>
+	>
+	<%= user.name %>
+</p>

@@ -1,0 +1,31 @@
+<% cum = 0 %>
+<% if current_user.munros %>
+	<% cum = cum+1 %>
+	<li>
+	  <button class='category_button btn-link' value='Munros'>Munros</button>
+	</li>
+<%end %>
+<% if current_user.munro_tops %>
+	<% cum = cum+1 %>
+	<li>
+	  <button class='category_button btn-link' value='Munro Tops'>Munro Tops</button>
+	</li>
+<%end %>
+<% if current_user.corbetts %>
+	<% cum = cum+1 %>
+	<li>
+	  <button class='category_button btn-link' value='Corbetts'>Corbetts</button>
+	</li>
+<%end %>
+<% if current_user.grahams %>
+	<% cum = cum+1 %>
+	<li>
+	  <button class='category_button btn-link' value='Grahams'>Grahams</button>
+	</li>
+<%end %>
+<% if cum > 1 %>
+	<li>
+	  <button class='category_button btn-link' value='All'>All</button>
+	</li>
+<% end %>
+
